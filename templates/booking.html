@@ -1,0 +1,177 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Бронювання - НАТАН" %}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'img/carousel-1.jpg' %});">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">{% translate "Бронювання" %}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="/">{% translate "Головна" %}</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">{% translate "Бронювання" %}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">{% translate "Запит на бронювання" %}</h6>
+                <h1 class="mb-5">{% translate "Оберіть свій" %} <span class="text-primary text-uppercase">{% translate "Відпочинок" %}</span></h1>
+                <div class="alert alert-info border-0 shadow-sm mx-auto mb-5" style="max-width: 700px;">
+                    <i class="fa fa-info-circle me-2"></i>
+                    <strong>{% translate "Зверніть увагу:" %}</strong> {% translate "Після відправки запиту адміністратор зателефонує вам для підтвердження." %}
+                </div>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <style>
+                        .photo-tile {
+                            width: 100%;
+                            height: 200px;
+                            object-fit: cover;
+                            object-position: center;
+                            border-radius: 10px;
+                        }
+                        .photo-tile-small {
+                            width: 85% !important;
+                            height: 150px;
+                            object-fit: cover;
+                            object-position: center;
+                            border-radius: 10px;
+                        }
+                    </style>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-6 text-end">
+                            <img class="img-fluid photo-tile-small wow zoomIn" data-wow-delay="0.1s" src="{% static 'img/about-1.jpg' %}" alt="{% translate "Інтер'єр" %}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid photo-tile wow zoomIn" data-wow-delay="0.3s" src="{% static 'img/about-2.jpg' %}" alt="{% translate "Вид" %}">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid photo-tile wow zoomIn" data-wow-delay="0.5s" src="{% static 'img/about-3.jpg' %}" alt="{% translate "Зона відпочинку" %}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid photo-tile-small wow zoomIn" data-wow-delay="0.7s" src="{% static 'img/about-4.jpg' %}" alt="{% translate "Ресторан" %}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} border-0 shadow-sm mb-4 animated fadeIn">
+                                <i class="fa {% if message.tags == 'error' %}fa-exclamation-triangle{% else %}fa-check-circle{% endif %} me-2"></i>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="wow fadeInUp bg-white p-5 rounded shadow" data-wow-delay="0.2s">
+                        <form method="POST"> {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label small text-muted">{% translate "Оберіть номер" %}</label>
+                                    <select name="room_id" class="form-select border-0 bg-light py-3" required>
+                                        {% if not available_rooms %}
+                                            <option value="" disabled selected>{% translate "На жаль, вільних номерів на ці дати немає" %}</option>
+                                        {% else %}
+                                            <option value="" disabled {% if not selected_room_id %}selected{% endif %}>-- {% translate "Виберіть номер" %} --</option>
+                                            {% for room in available_rooms %}
+                                                <option value="{{ room.id }}" {% if selected_room_id == room.id|stringformat:"s" %}selected{% endif %}>
+                                                    {{ room.number }} ({% translate "від" %} {{ room.base_price|floatformat:0 }}₴)
+                                                </option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small text-muted">{% translate "Кількість осіб" %}</label>
+                                    <select name="guests_count" class="form-select border-0 bg-light py-3" required>
+                                        <option value="1">1 {% translate "особа" %}</option>
+                                        <option value="2" selected>2 {% translate "особи" %}</option>
+                                        <option value="3">3 {% translate "особи" %}</option>
+                                        <option value="4">4 {% translate "особи" %}</option>
+                                        <option value="5">5 {% translate "осіб" %}</option>
+                                        <option value="6">6 {% translate "осіб" %}</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">{% translate "Ваше ім'я" %}</label>
+                                    <input type="text" name="customer_first_name" class="form-control border-0 bg-light py-3" placeholder="{% translate "Ім'я" %}" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">{% translate "Ваше прізвище" %}</label>
+                                    <input type="text" name="customer_last_name" class="form-control border-0 bg-light py-3" placeholder="{% translate "Прізвище" %}" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small text-muted">{% translate "Ваш номер телефону" %}</label>
+                                    <input type="tel"
+                                           name="customer_phone"
+                                           class="form-control border-0 bg-light py-3"
+                                           placeholder="+380 XX XXX XX XX"
+                                           pattern="[\+]?[0-9\s\-]{9,}"
+                                           title="{% translate "Введіть номер телефону у форматі +380 XX XXX XX XX" %}"
+                                           required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">{% translate "Дата заїзду" %}</label>
+                                    <input type="date" name="check_in" id="b_check_in" class="form-control border-0 bg-light py-3" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">{% translate "Дата виїзду" %}</label>
+                                    <input type="date" name="check_out" id="b_check_out" class="form-control border-0 bg-light py-3" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small text-muted">{% translate "Спеціальні побажання" %}</label>
+                                    <textarea name="message" class="form-control border-0 bg-light" placeholder="{% translate "Напишіть нам..." %}" style="height: 100px"></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacy" required>
+                                        <label class="form-check-label small text-muted" for="privacy">
+                                            {% translate "Я погоджуюся з" %} <a href="{% url 'privacy_policy' %}" target="_blank">{% translate "політикою конфіденційності" %}</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button class="btn btn-primary w-100 py-3 text-uppercase fw-bold" type="submit">
+                                        {% translate "Надіслати запит на бронь" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cin = document.getElementById('b_check_in');
+            const cout = document.getElementById('b_check_out');
+            const today = new Date().toISOString().split('T')[0];
+            if(!cin.value) cin.setAttribute('min', today);
+            if(!cout.value) cout.setAttribute('min', today);
+            cin.addEventListener('change', function() {
+                cout.setAttribute('min', this.value);
+                if (cout.value && cout.value < this.value) cout.value = this.value;
+            });
+        });
+    </script>
+{% endblock %}

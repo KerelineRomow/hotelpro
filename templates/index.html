@@ -1,0 +1,150 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Головна - Готель НАТАН" %}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="{% translate "Готель Натан" %}" style="height: 80vh; object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 800px;">
+                            <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{% translate "Ваш затишний відпочинок" %}</h6>
+                            <h1 class="display-1 text-white mb-4 animated slideInDown fw-bold">{% translate "НАТАН" %}</h1>
+                            <p class="text-white fs-5 mb-4 animated slideInDown">{% translate "Сімейні цінності, перевірені часом. Створюємо затишок у Березані з 1997 року." %}</p>
+                            <div class="animated slideInUp">
+                                <a href="{% url 'booking' %}" class="btn btn-primary py-md-3 px-md-5 me-3 text-uppercase fw-bold">{% translate "Забронювати" %}</a>
+                                <a href="{% url 'rooms' %}" class="btn btn-light py-md-3 px-md-5 text-uppercase fw-bold">{% translate "Наші номери" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'booking_form/booking_form.html' %}
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-start text-primary text-uppercase">{% translate "Наша Історія" %}</h6>
+                    <h1 class="mb-4">{% translate "З 1997 року будуємо" %} <span class="text-primary text-uppercase">{% translate "Довіру" %}</span></h1>
+                    <p class="mb-4">
+                        {% blocktranslate %}Підприємство <strong>«Натан»</strong> — це історія розвитку, праці та відданості своїй справі, яка розпочалася ще у 1997 році. Засноване сімейною парою — <strong>Олександром Кудою та Наталією Колесниковою</strong>, воно стало не просто бізнесом, а важливою частиною життя міста Березань.{% endblocktranslate %}
+                    </p>
+
+                    <div class="row g-3 pb-4">
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-history fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1">29</h2>
+                                    <p class="mb-0">{% translate "Років досвіду" %}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-users fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1">100%</h2>
+                                    <p class="mb-0">{% translate "Сімейний бізнес" %}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-heart fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1">UA</h2>
+                                    <p class="mb-0">{% translate "Рідне місто" %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{% static 'img/about-1.jpg' %}" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'img/about-2.jpg' %}" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src="{% static 'img/about-3.jpg' %}" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{% static 'img/about-4.jpg' %}" style="height: 250px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5 bg-light my-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="rounded shadow-sm bg-white p-4 h-100 text-center border">
+                        <div class="bg-transparent border rounded p-1 d-inline-block mb-4">
+                            <div class="border rounded d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+                                <i class="fa fa-road text-primary fa-2x"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-3">{% translate "Внесок у місто" %}</h5>
+                        <p class="text-body mb-0">{% translate "Облаштування під’їзної дороги до Березанського озера — місця відпочинку, яке сьогодні добре знайоме кожному мешканцю." %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="rounded shadow-sm bg-white p-4 h-100 text-center border">
+                        <div class="bg-transparent border rounded p-1 d-inline-block mb-4">
+                            <div class="border rounded d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+                                <i class="fa fa-shopping-bag text-primary fa-2x"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-3">{% translate "Місцевий ринок" %}</h5>
+                        <p class="text-body mb-0">{% translate "Понад 10 років ми організовували щосуботній ринок — живий центр торгівлі та спілкування для всієї громади." %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="rounded shadow-sm bg-white p-4 h-100 text-center border">
+                        <div class="bg-transparent border rounded p-1 d-inline-block mb-4">
+                            <div class="border rounded d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+                                <i class="fa fa-hotel text-primary fa-2x"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-3">{% translate "Нова ера гостинності" %}</h5>
+                        <p class="text-body mb-0">{% translate "З 2011 року ми надаємо послуги у сфері гостинності: затишний готель та сучасний банкетний зал для ваших подій." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">{% translate "Наше Майбутнє" %}</h6>
+                <h1 class="mb-5">{% translate "Прагнення до" %} <span class="text-primary text-uppercase">{% translate "Досконалості" %}</span></h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="fs-5 text-dark mb-4" style="line-height: 1.8;">
+                        {% translate "Ми постійно розвиваємось і вже найближчим часом плануємо впровадження нових напрямків діяльності, щоб ще більше відповідати потребам наших гостей та робити їхній відпочинок комфортним і незабутнім." %}
+                    </p>
+                    <p class="fs-5 text-dark mb-5" style="line-height: 1.8;">
+                        {% blocktranslate %}<strong>«Натан»</strong> — це поєднання досвіду, сімейних цінностей і прагнення створювати якісний сервіс для кожного нашого гостя.{% endblocktranslate %}
+                    </p>
+                    <div class="p-4 border-top border-bottom border-primary d-inline-block">
+                        <h4 class="m-0 text-uppercase fw-bold">{% translate "З повагою до кожного гостя" %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

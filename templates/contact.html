@@ -1,0 +1,139 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Контакти - НАТАН" %}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'img/carousel-1.jpg' %});">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">{% translate "Контакти" %}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="/">{% translate "Головна" %}</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">{% translate "Контакти" %}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    {% include 'booking_form/booking_form.html' %}
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">{% translate "Зв'яжіться з нами" %}</h6>
+                <h1 class="mb-5">{% translate "Чекаємо на вас у" %} <span class="text-primary text-uppercase">{% translate "НАТАН" %}</span></h1>
+            </div>
+
+            {% if messages %}
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} border-0 shadow-sm mb-4 animated fadeIn text-center">
+                                <i class="fa {% if message.tags == 'error' %}fa-exclamation-circle{% else %}fa-check-circle{% endif %} me-2"></i>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row g-4">
+                <div class="col-12 mb-4">
+                    <div class="row g-4">
+                        <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="d-flex flex-column justify-content-center h-100 border-start border-4 border-primary px-3">
+                                <h6 class="section-title text-start text-primary text-uppercase">{% translate "Адреса" %}</h6>
+                                <p class="mb-0">
+                                    <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                                    {% translate "вул. Героїв Небесної Сотні, 7-а" %}
+                                    <br>
+                                    <small class="text-muted">{% translate "(колишня вул. Фрунзе)" %}</small>
+                                    <br>
+                                    <span class="text-dark">{% translate "м. Березань, Київська обл." %}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="d-flex flex-column justify-content-center h-100 border-start border-4 border-primary px-3">
+                                <h6 class="section-title text-start text-primary text-uppercase">{% translate "Телефон" %}</h6>
+                                <p class="mb-0">
+                                    <i class="fa fa-phone-alt text-primary me-2"></i>
+                                    <a href="tel:+380679242242" class="text-dark text-decoration-none">+380 67 924 2242</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="d-flex flex-column justify-content-center h-100 border-start border-4 border-primary px-3">
+                                <h6 class="section-title text-start text-primary text-uppercase">Email</h6>
+                                <p class="mb-0">
+                                    <i class="fa fa-envelope-open text-primary me-2"></i>
+                                    <a href="mailto:info@natan.ua" class="text-dark text-decoration-none">info@natan.ua</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="rounded overflow-hidden shadow-sm border h-100" style="min-height: 400px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2547.9881245441156!2d31.460085776263917!3d50.31081369740851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d455ca575a85b7%3A0xe43ba0b7cd3fc0ae!2z0J3QkNCi0JDQnQ!5e0!3m2!1sru!2sbe!4v1777203272101!5m2!1sru!2sbe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="wow fadeInUp bg-white p-4 rounded shadow-sm border" data-wow-delay="0.2s">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" name="name" class="form-control border-0 bg-light" id="name" placeholder="{% translate "Ваше ім'я" %}" required>
+                                        <label for="name">{% translate "Ваше ім'я" %}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" name="phone" class="form-control border-0 bg-light" id="phone"
+                                               placeholder="{% translate "Ваш телефон" %}"
+                                               pattern="^\+?[0-9]+$"
+                                               oninput="this.value = this.value.replace(/[^0-9+]/g, '')"
+                                               title="{% translate 'Дозволені лише цифри та знак +' %}"
+                                               required>
+                                        <label for="phone">{% translate "Ваш телефон" %}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" class="form-control border-0 bg-light" id="email" placeholder="{% translate "Ваш Email" %}" required>
+                                        <label for="email">{% translate "Ваш Email" %}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea name="message" class="form-control border-0 bg-light" placeholder="{% translate "Повідомлення" %}" id="message" style="height: 150px" required></textarea>
+                                        <label for="message">{% translate "Повідомлення або запитання" %}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3 text-uppercase fw-bold" type="submit">
+                                        {% translate "Замовити дзвінок" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

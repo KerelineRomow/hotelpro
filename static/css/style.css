@@ -1,0 +1,235 @@
+/********** Template CSS (NATAN Edition) **********/
+
+:root {
+    --primary: #1C332A;
+    --secondary: #2A1F19;
+    --light: #F5F1E9;
+    --dark: #120D0B;
+    --white: #FFFFFF;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+}
+
+body {
+    background-color: var(--light) !important;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+}
+
+.text-primary { color: var(--primary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.border-primary { border-color: var(--primary) !important; }
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::before,
+.section-title::after {
+    background: var(--primary) !important;
+}
+
+#spinner .spinner-border {
+    color: var(--primary) !important;
+}
+
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn {
+    font-weight: 500;
+    text-transform: none !important;
+    transition: .5s;
+    border-radius: 50px !important;
+    padding: 10px 25px;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--white) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+.btn-outline-primary {
+    background-color: transparent !important;
+    border: 1px solid var(--text-muted) !important;
+    color: var(--text-dark) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: rgba(0,0,0,0.05) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 20px !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    background-color: var(--primary) !important;
+    border-radius: 8px;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.room-item, .service-item {
+    background: var(--white);
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.service-item:hover {
+    background: var(--primary);
+    color: var(--white) !important;
+}
+
+.service-item:hover i,
+.service-item:hover h5 {
+    color: var(--white) !important;
+}
+
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1;
+}
+
+.page-header {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-header-inner {
+    background: rgba(0, 0, 0, 0.2) !important;
+    transition: .5s;
+}
+
+.breadcrumb-item a,
+.breadcrumb-item.active,
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--white) !important;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--primary) !important;
+}
+
+.booking {
+    position: relative;
+    margin-top: -50px !important;
+    z-index: 1;
+}
+
+.booking .bg-white {
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+}
+
+.video {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    background: linear-gradient(rgba(0,0,0, 0.2), rgba(0,0,0, 0.2)), url(../img/video.jpg);
+    background-position: center center;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.footer {
+    background-color: var(--secondary) !important;
+    color: rgba(255,255,255,0.7) !important;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+.footer a {
+    color: var(--white);
+    transition: .3s;
+}
+
+.footer a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--secondary);
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+        margin-top: 15px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active {
+        background-color: transparent !important;
+        color: var(--primary) !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xxl { max-width: 100% !important; }
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(28, 51, 42, 0.25) !important;
+    outline: 0;
+}
+
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-select:focus ~ label::after {
+    background-color: transparent !important;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-select:focus ~ label {
+    color: var(--primary) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}

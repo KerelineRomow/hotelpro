@@ -1,0 +1,55 @@
+{% load i18n %}
+{% load static %}
+<div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="bg-white shadow" style="padding: 35px; border-radius: 8px;">
+            <form action="{% url 'rooms' %}" method="GET">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <label class="small mb-1 text-muted fw-bold">{% translate "Дата заїзду" %}</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i class="fa fa-calendar-alt text-primary"></i></span>
+                            <input type="date" name="check_in" id="check_in"
+                                class="form-control border-start-0 ps-0"
+                                value="{{ request.GET.check_in|default:'' }}"
+                                required />
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="small mb-1 text-muted fw-bold">{% translate "Дата виїзду" %}</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i class="fa fa-calendar-alt text-primary"></i></span>
+                            <input type="date" name="check_out" id="check_out"
+                                class="form-control border-start-0 ps-0"
+                                value="{{ request.GET.check_out|default:'' }}"
+                                required />
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100 text-uppercase fw-bold py-2" style="height: 38px;">
+                            {% translate "Пошук" %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const checkInInput = document.getElementById('check_in');
+        const checkOutInput = document.getElementById('check_out');
+
+        const today = new Date().toISOString().split('T')[0];
+        checkInInput.setAttribute('min', today);
+        checkOutInput.setAttribute('min', today);
+
+        checkInInput.addEventListener('change', function() {
+            checkOutInput.setAttribute('min', this.value);
+            if (checkOutInput.value && checkOutInput.value < this.value) {
+                checkOutInput.value = this.value;
+            }
+        });
+    });
+</script>

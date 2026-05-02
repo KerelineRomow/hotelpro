@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}{{ room.number }} - НАТАН{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div id="roomCarousel" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            {% if room.image %}
+                                <img src="{{ room.image.url }}" class="d-block w-100" alt="Main" style="height: 400px; object-fit: cover;">
+                            {% else %}
+                                <img src="{% static 'img/no-photo.jpg' %}" class="d-block w-100" style="height: 400px; object-fit: cover;">
+                            {% endif %}
+                        </div>
+                        {% for img in room.images.all %}
+                        <div class="carousel-item">
+                            <img src="{{ img.image.url }}" class="d-block w-100" alt="Gallery" style="height: 400px; object-fit: cover;">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if room.images.all %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h6 class="section-title text-start text-primary text-uppercase">Деталі номера</h6>
+                <h1 class="mb-4">{{ room.number }}</h1>
+                <p class="mb-4">{{ room.description }}</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6">
+                        <div class="border-start border-4 border-primary px-3">
+                            <h5 class="text-uppercase mb-1">Ціна</h5>
+                            <p class="mb-0 text-primary fw-bold">від {{ room.base_price|floatformat:0 }} грн</p>
+                            {% for p in room.prices.all %}
+                                <small class="{% if request.GET.adults == p.guests_count|stringformat:'s' %}text-primary fw-bold{% else %}text-muted{% endif %} d-block">
+                                    {{ p.guests_count }} осіб: {{ p.price|floatformat:0 }} грн
+                                </small>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="border-start border-4 border-primary px-3">
+                            <h5 class="text-uppercase mb-1">Ліжка</h5>
+                            <p class="mb-0">{{ room.beds_count }} спальних місць</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mb-3">Зручності:</h5>
+                <div class="d-flex flex-wrap mb-4">
+                    {% if room.has_wifi %}<span class="badge bg-light text-dark border me-2 mb-2 p-2"><i class="fa fa-wifi text-primary me-2"></i>Wi-Fi</span>{% endif %}
+                    {% if room.has_fridge %}<span class="badge bg-light text-dark border me-2 mb-2 p-2"><i class="fa fa-snowflake text-primary me-2"></i>Холодильник</span>{% endif %}
+                    {% if room.has_tv %}<span class="badge bg-light text-dark border me-2 mb-2 p-2"><i class="fa fa-tv text-primary me-2"></i>TV</span>{% endif %}
+                    {% if room.has_kettle %}<span class="badge bg-light text-dark border me-2 mb-2 p-2"><i class="fa fa-coffee text-primary me-2"></i>Чайник</span>{% endif %}
+                    {% if room.has_bath %}<span class="badge bg-light text-dark border me-2 mb-2 p-2"><i class="fa fa-bath text-primary me-2"></i>Власний санвузол</span>{% endif %}
+                </div>
+
+                <a class="btn btn-primary py-3 px-5 mt-2"
+                   href="{% url 'booking' %}?room_id={{ room.id }}&check_in={{ request.GET.check_in }}&check_out={{ request.GET.check_out }}&adults={{ request.GET.adults }}">
+                   Забронювати цей номер
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

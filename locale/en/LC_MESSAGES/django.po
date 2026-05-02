@@ -1,0 +1,764 @@
+# Translation for Hotel NATAN.
+# Copyright (C) 2026
+# This file is distributed under the same license as the Natan package.
+# Gemini <ai@google.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Natan 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-13 20:23+0300\n"
+"PO-Revision-Date: 2026-04-13 21:00+0300\n"
+"Last-Translator: Gemini\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: Natan/settings.py:116
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+#: Natan/settings.py:117
+msgid "English"
+msgstr "English"
+
+#: templates/base/base.html:31
+msgid "Завантаження..."
+msgstr "Loading..."
+
+#: templates/base/base.html:42 templates/contact.html:28
+#: templates/index.html:16
+msgid "НАТАН"
+msgstr "NATAN"
+
+#: templates/base/base.html:49 templates/booking.html:14
+#: templates/contact.html:14 templates/room.html:14 templates/service.html:14
+msgid "Головна"
+msgstr "Home"
+
+#: templates/base/base.html:50 templates/room.html:15
+msgid "Номери"
+msgstr "Rooms"
+
+#: templates/base/base.html:51 templates/service.html:15
+msgid "Сервіси"
+msgstr "Services"
+
+#: templates/base/base.html:52 templates/booking.html:11
+#: templates/booking.html:15
+msgid "Бронювання"
+msgstr "Booking"
+
+#: templates/base/base.html:53 templates/contact.html:11
+#: templates/contact.html:15
+msgid "Контакти"
+msgstr "Contacts"
+
+#: templates/base/base.html:88
+msgid "Готель НАТАН, Inc. Всі права захищені."
+msgstr "Hotel NATAN, Inc. All rights reserved."
+
+#: templates/base/base.html:90
+msgid "Політика конфіденційності"
+msgstr "Privacy Policy"
+
+#: templates/booking.html:5
+msgid "Бронювання - НАТАН"
+msgstr "Booking - NATAN"
+
+#: templates/booking.html:25
+msgid "Запит на бронювання"
+msgstr "Booking Request"
+
+#: templates/booking.html:26
+msgid "Оберіть свій"
+msgstr "Choose Your"
+
+#: templates/booking.html:26
+msgid "Відпочинок"
+msgstr "Vacation"
+
+#: templates/booking.html:29
+msgid "Зверніть увагу:"
+msgstr "Please note:"
+
+#: templates/booking.html:29
+msgid "Після відправки запиту адміністратор зателефонує вам для підтвердження."
+msgstr "After submitting the request, our manager will call you for confirmation."
+
+#: templates/booking.html:53
+msgid "Інтер'єр"
+msgstr "Interior"
+
+#: templates/booking.html:56
+msgid "Вид"
+msgstr "View"
+
+#: templates/booking.html:59
+msgid "Зона відпочинку"
+msgstr "Lounge Area"
+
+#: templates/booking.html:62
+msgid "Ресторан"
+msgstr "Restaurant"
+
+#: templates/booking.html:81
+msgid "Оберіть номер"
+msgstr "Select a Room"
+
+#: templates/booking.html:84
+msgid "На жаль, вільних номерів на ці дати немає"
+msgstr "Sorry, no rooms available for these dates"
+
+#: templates/booking.html:86
+msgid "Виберіть номер"
+msgstr "Choose room"
+
+#: templates/booking.html:89 templates/room.html:43
+msgid "від"
+msgstr "from"
+
+#: templates/booking.html:97
+msgid "Кількість осіб"
+msgstr "Number of guests"
+
+#: templates/booking.html:99
+msgid "особа"
+msgstr "person"
+
+#: templates/booking.html:100 templates/booking.html:101
+#: templates/booking.html:102
+msgid "особи"
+msgstr "persons"
+
+#: templates/booking.html:103 templates/booking.html:104
+msgid "осіб"
+msgstr "persons"
+
+#: templates/booking.html:109 templates/contact.html:98
+#: templates/contact.html:99
+msgid "Ваше ім'я"
+msgstr "Your name"
+
+#: templates/booking.html:110
+msgid "Ім'я"
+msgstr "First Name"
+
+#: templates/booking.html:113
+msgid "Ваше прізвище"
+msgstr "Your last name"
+
+#: templates/booking.html:114
+msgid "Прізвище"
+msgstr "Last Name"
+
+#: templates/booking.html:118
+msgid "Ваш номер телефону"
+msgstr "Your phone number"
+
+#: templates/booking.html:124
+msgid "Введіть номер телефону у форматі +380 XX XXX XX XX"
+msgstr "Enter phone number in format +380 XX XXX XX XX"
+
+#: templates/booking.html:129 templates/booking_form/booking_form.html:9
+msgid "Дата заїзду"
+msgstr "Check-in Date"
+
+#: templates/booking.html:133 templates/booking_form/booking_form.html:19
+msgid "Дата виїзду"
+msgstr "Check-out Date"
+
+#: templates/booking.html:138
+msgid "Спеціальні побажання"
+msgstr "Special Requests"
+
+#: templates/booking.html:139
+msgid "Напишіть нам..."
+msgstr "Write to us..."
+
+#: templates/booking.html:146
+msgid "Я погоджуюся з"
+msgstr "I agree with the"
+
+#: templates/booking.html:146
+msgid "політикою конфіденційності"
+msgstr "privacy policy"
+
+#: templates/booking.html:153
+msgid "Надіслати запит на бронь"
+msgstr "Submit Booking Request"
+
+#: templates/booking_form/booking_form.html:30
+msgid "Пошук"
+msgstr "Search"
+
+#: templates/booking_success.html:13
+msgid "Дякуємо!"
+msgstr "Thank You!"
+
+#: templates/booking_success.html:14
+msgid "Запит на бронювання прийнято"
+msgstr "Booking request received"
+
+#: templates/booking_success.html:15
+msgid ""
+"Ми отримали вашу заявку. Найближчим часом наш адміністратор зателефонує вам "
+"для підтвердження деталей та наявності номера."
+msgstr "We have received your application. Our manager will call you shortly to confirm the details and room availability."
+
+#: templates/booking_success.html:16
+msgid "Повернутися на головну"
+msgstr "Back to Home"
+
+#: templates/contact.html:5
+msgid "Контакти - НАТАН"
+msgstr "Contacts - NATAN"
+
+#: templates/contact.html:27
+msgid "Зв'яжіться з нами"
+msgstr "Contact Us"
+
+#: templates/contact.html:49
+msgid "Адреса"
+msgstr "Address"
+
+#: templates/contact.html:52
+msgid "вул. Героїв Небесної Сотні, 7-а"
+msgstr "7-a Heroiv Nebesnoi Sotni Str."
+
+#: templates/contact.html:54
+msgid "(колишня вул. Фрунзе)"
+msgstr "(formerly Frunze Str.)"
+
+#: templates/contact.html:56
+msgid "м. Березань, Київська обл."
+msgstr "Berezan, Kyiv region"
+
+#: templates/contact.html:63
+msgid "Телефон"
+msgstr "Phone"
+
+#: templates/contact.html:105 templates/contact.html:106
+msgid "Ваш телефон"
+msgstr "Your phone"
+
+#: templates/contact.html:112 templates/contact.html:113
+msgid "Ваш Email"
+msgstr "Your Email"
+
+#: templates/contact.html:119
+msgid "Повідомлення"
+msgstr "Message"
+
+#: templates/contact.html:120
+msgid "Повідомлення або запитання"
+msgstr "Message or question"
+
+#: templates/contact.html:126
+msgid "Замовити дзвінок"
+msgstr "Request a Call"
+
+#: templates/index.html:5
+msgid "Головна - Готель НАТАН"
+msgstr "Home - Hotel NATAN"
+
+#: templates/index.html:12
+msgid "Готель Натан"
+msgstr "Hotel Natan"
+
+#: templates/index.html:15
+msgid "Ваш затишний відпочинок"
+msgstr "Your Cozy Getaway"
+
+#: templates/index.html:17
+msgid ""
+"Сімейні цінності, перевірені часом. Створюємо затишок у Березані з 1997 року."
+msgstr "Time-tested family values. Creating comfort in Berezan since 1997."
+
+#: templates/index.html:19
+msgid "Забронювати"
+msgstr "Book Now"
+
+#: templates/index.html:20 templates/room.html:11
+msgid "Наші номери"
+msgstr "Our Rooms"
+
+#: templates/index.html:34
+msgid "Наша Історія"
+msgstr "Our Story"
+
+#: templates/index.html:35
+msgid "З 1997 року будуємо"
+msgstr "Building Trust Since"
+
+#: templates/index.html:35
+msgid "Довіру"
+msgstr "1997"
+
+#: templates/index.html:37
+msgid ""
+"Підприємство <strong>«Натан»</strong> — це історія розвитку, праці та "
+"відданості своїй справі, яка розпочалася ще у 1997 році. Засноване сімейною "
+"парою — <strong>Олександром Кудою та Наталією Колесниковою</strong>, воно "
+"стало не просто бізнесом, а важливою частиною життя міста Березань."
+msgstr "The <strong>«Natan»</strong> enterprise is a story of development, hard work, and dedication that began back in 1997. Founded by a family couple — <strong>Oleksandr Kuda and Natalia Kolesnykova</strong>, it became not just a business, but an important part of life in Berezan city."
+
+#: templates/index.html:46
+msgid "Років досвіду"
+msgstr "Years of experience"
+
+#: templates/index.html:55
+msgid "Сімейний бізнес"
+msgstr "Family business"
+
+#: templates/index.html:64
+msgid "Рідне місто"
+msgstr "Hometown"
+
+#: templates/index.html:99
+msgid "Внесок у місто"
+msgstr "Contribution to the City"
+
+#: templates/index.html:100
+msgid ""
+"Облаштування під’їзної дороги до Березанського озера — місця відпочинку, яке "
+"сьогодні добре знайоме кожному мешканцю."
+msgstr "Arrangement of the access road to the Berezan Lake — a recreation spot well known to every local resident today."
+
+#: templates/index.html:110
+msgid "Місцевий ринок"
+msgstr "Local Market"
+
+#: templates/index.html:111
+msgid ""
+"Понад 10 років ми організовували щосуботній ринок — живий центр торгівлі та "
+"спілкування для всієї громади."
+msgstr "For over 10 years, we organized a weekly Saturday market — a lively center of trade and communication for the entire community."
+
+#: templates/index.html:121
+msgid "Нова ера гостинності"
+msgstr "A New Era of Hospitality"
+
+#: templates/index.html:122
+msgid ""
+"З 2011 року ми надаємо послуги у сфері гостинності: затишний готель та "
+"сучасний банкетний зал для ваших подій."
+msgstr "Since 2011, we have been providing hospitality services: a cozy hotel and a modern banquet hall for your events."
+
+#: templates/index.html:131
+msgid "Наше Майбутнє"
+msgstr "Our Future"
+
+#: templates/index.html:132
+msgid "Прагнення до"
+msgstr "Striving for"
+
+#: templates/index.html:132
+msgid "Досконалості"
+msgstr "Excellence"
+
+#: templates/index.html:137
+msgid ""
+"Ми постійно розвиваємось і вже найближчим часом плануємо впровадження нових "
+"напрямків діяльності, щоб ще більше відповідати потребам наших гостей та "
+"робити їхній відпочинок комфортним і незабутнім."
+msgstr ""
+"We are constantly evolving and plan to introduce new lines of activity in "
+"the near future to better meet the needs of our guests and make their stay "
+"comfortable and unforgettable."
+
+#: templates/index.html:140
+msgid ""
+"<strong>«Натан»</strong> — це поєднання досвіду, сімейних цінностей і "
+"прагнення створювати якісний сервіс для кожного нашого гостя."
+msgstr "<strong>«Natan»</strong> is a combination of experience, family values, and a desire to create quality service for each of our guests."
+
+#: templates/index.html:143
+msgid "З повагою до кожного гостя"
+msgstr "With respect to every guest"
+
+#: templates/privacy_policy/privacy_policy.html:5
+msgid "Політика конфіденційності - НАТАН"
+msgstr "Privacy Policy - NATAN"
+
+#: templates/privacy_policy/privacy_policy.html:11
+msgid "Конфіденційність"
+msgstr "Privacy"
+
+#: templates/privacy_policy/privacy_policy.html:20
+msgid "Політика конфіденційності та захисту персональних даних"
+msgstr "Privacy Policy and Personal Data Protection"
+
+#: templates/privacy_policy/privacy_policy.html:24
+msgid "1. Загальні положення"
+msgstr "1. General Provisions"
+
+#: templates/privacy_policy/privacy_policy.html:25
+msgid "Володільцем персональних даних є"
+msgstr "The personal data controller is"
+
+#: templates/privacy_policy/privacy_policy.html:25
+msgid "ФОП Куда Олександр"
+msgstr "FOP Kuda Oleksandr"
+
+#: templates/privacy_policy/privacy_policy.html:26
+msgid ""
+"Ця Політика встановлює порядок отримання, зберігання, обробки та "
+"використання персональних даних користувачів сайту <strong>Готель НАТАН</"
+"strong>. Ми з повагою ставимося до конфіденційної інформації кожного "
+"відвідувача."
+msgstr "This Policy establishes the procedure for obtaining, storing, processing, and using personal data of users of the <strong>Hotel NATAN</strong> website. We respect the confidential information of every visitor."
+
+#: templates/privacy_policy/privacy_policy.html:28
+msgid "2. Які дані мы збираємо"
+msgstr "2. What Data We Collect"
+
+#: templates/privacy_policy/privacy_policy.html:29
+msgid "Під час заповнення форми бронювання ми просимо вас надати:"
+msgstr "When filling out the booking form, we ask you to provide:"
+
+#: templates/privacy_policy/privacy_policy.html:31
+msgid "Ім'я та Прізвище"
+msgstr "First and Last Name"
+
+#: templates/privacy_policy/privacy_policy.html:31
+msgid "для ідентифікації клієнта;"
+msgstr "for client identification;"
+
+#: templates/privacy_policy/privacy_policy.html:32
+msgid "Номер телефону"
+msgstr "Phone Number"
+
+#: templates/privacy_policy/privacy_policy.html:32
+msgid "для зв'язку та підтвердження броні;"
+msgstr "for contact and booking confirmation;"
+
+#: templates/privacy_policy/privacy_policy.html:33
+msgid "Дати проживання"
+msgstr "Dates of Stay"
+
+#: templates/privacy_policy/privacy_policy.html:33
+msgid "для перевірки наявності місць."
+msgstr "to check availability."
+
+#: templates/privacy_policy/privacy_policy.html:36
+msgid "3. Мета збору даних"
+msgstr "3. Purpose of Data Collection"
+
+#: templates/privacy_policy/privacy_policy.html:37
+msgid "Ваші дані використовуються виключно для:"
+msgstr "Your data is used exclusively for:"
+
+#: templates/privacy_policy/privacy_policy.html:39
+msgid "Надання послуг тимчасового проживання;"
+msgstr "Providing temporary accommodation services;"
+
+#: templates/privacy_policy/privacy_policy.html:40
+msgid "Підтвердження бронювання администратором;"
+msgstr "Booking confirmation by the administrator;"
+
+#: templates/privacy_policy/privacy_policy.html:41
+msgid "Ведення внутрішньої історії відвідувань для покращення сервісу."
+msgstr "Maintaining internal visit history to improve service."
+
+#: templates/privacy_policy/privacy_policy.html:44
+msgid "4. Зберігання та захист"
+msgstr "4. Storage and Protection"
+
+#: templates/privacy_policy/privacy_policy.html:45
+msgid ""
+"Ми вживаємо необхідних технічних заходів для захисту ваших даних від "
+"несанкціонованого доступу. Персональні дані зберігаються у внутрішній базі "
+"даних сайту та не передаються третім особам, крім випадків, прямо "
+"передбачених чинним законодавством України."
+msgstr "We take the necessary technical measures to protect your data from unauthorized access. Personal data is stored in the internal database of the site and is not transferred to third parties, except in cases directly provided for by the current legislation of Ukraine."
+
+#: templates/privacy_policy/privacy_policy.html:47
+msgid "5. Права користувача"
+msgstr "5. User Rights"
+
+#: templates/privacy_policy/privacy_policy.html:48
+msgid ""
+"Відповідно до Закону України «Про захист персональних даних», ви маєте право:"
+msgstr "According to the Law of Ukraine \"On Protection of Personal Data\", you have the right to:"
+
+#: templates/privacy_policy/privacy_policy.html:50
+msgid "Знати, які ваші дані ми зберігаємо;"
+msgstr "Know what data of yours we store;"
+
+#: templates/privacy_policy/privacy_policy.html:51
+msgid "Вимагати виправлення або повного видалення ваших даних із нашої бази;"
+msgstr "Request correction or complete deletion of your data from our database;"
+
+#: templates/privacy_policy/privacy_policy.html:52
+msgid ""
+"Відкликати згоду на обробку даних у будь-який момент, звернувшись до "
+"адміністрації."
+msgstr "Withdraw consent to data processing at any time by contacting the administration."
+
+#: templates/privacy_policy/privacy_policy.html:55
+msgid "6. Згода на обробку"
+msgstr "6. Consent to Processing"
+
+#: templates/privacy_policy/privacy_policy.html:56
+msgid ""
+"Натискаючи кнопку <strong>«Надіслати запит»</strong> на сторінці бронювання, "
+"ви підтверджуєте, що ознайомлені з цією Політикою та надаєте добровільну "
+"згоду на обробку ваших персональних даних."
+msgstr "By clicking the <strong>«Submit Request»</strong> button on the booking page, you confirm that you are familiar with this Policy and give voluntary consent to the processing of your personal data."
+
+#: templates/privacy_policy/privacy_policy.html:60
+msgid "Повернутися назад"
+msgstr "Go Back"
+
+#: templates/room.html:5
+msgid "Номери - НАТАН"
+msgstr "Rooms - NATAN"
+
+#: templates/room.html:27
+msgid "Ваш відпочинок"
+msgstr "Your Vacation"
+
+#: templates/room.html:28
+msgid "Оберіть свій ідеальний"
+msgstr "Choose Your Perfect"
+
+#: templates/room.html:28
+msgid "Номер"
+msgstr "Room"
+
+#: templates/room.html:39
+msgid "Фото відсутнє"
+msgstr "No photo available"
+
+#: templates/room.html:55
+msgid "ос."
+msgstr "guests"
+
+#: templates/room.html:63
+msgid "Кількість ліжок"
+msgstr "Number of beds"
+
+#: templates/room.html:67
+msgid "Душ/WC"
+msgstr "Shower/WC"
+
+#: templates/room.html:73
+msgid "Холодильник"
+msgstr "Fridge"
+
+#: templates/room.html:84
+msgid "Детальніше"
+msgstr "View Details"
+
+#: templates/room.html:88
+msgid "Бронювати"
+msgstr "Book Now"
+
+#: templates/room.html:98
+msgid "Вільних номерів не знайдено"
+msgstr "No rooms found"
+
+#: templates/room.html:99
+msgid "Спробуйте обрати інші дати."
+msgstr "Please try selecting other dates."
+
+#: templates/room.html:100
+msgid "Показати всі номери"
+msgstr "Show all rooms"
+
+#: templates/service.html:5
+msgid "Послуги та Зручності - НАТАН"
+msgstr "Services & Amenities - NATAN"
+
+#: templates/service.html:11
+msgid "Зручності та Сервіс"
+msgstr "Amenities & Service"
+
+#: templates/service.html:26
+msgid "Наші переваги"
+msgstr "Our Advantages"
+
+#: templates/service.html:27
+msgid "Все для вашого"
+msgstr "Everything for Your"
+
+#: templates/service.html:27
+msgid "Комфорту"
+msgstr "Comfort"
+
+#: templates/service.html:34
+msgid "Безкоштовна парковка"
+msgstr "Free Parking"
+
+#: templates/service.html:35
+msgid "Приватна, без замовлення"
+msgstr "Private, no reservation"
+
+#: templates/service.html:41
+msgid "Безкоштовний Wi-Fi"
+msgstr "Free Wi-Fi"
+
+#: templates/service.html:42
+msgid "На всій території готелю"
+msgstr "Throughout the hotel"
+
+#: templates/service.html:48
+msgid "Можна з тваринами"
+msgstr "Pets Allowed"
+
+#: templates/service.html:49
+msgid "По запиту (може бути платно)"
+msgstr "On request (charges may apply)"
+
+#: templates/service.html:55
+msgid "Сімейний відпочинок"
+msgstr "Family Vacation"
+
+#: templates/service.html:56
+msgid "Є сімейні номери"
+msgstr "Family rooms available"
+
+#: templates/service.html:63
+msgid "У номерах"
+msgstr "In the rooms"
+
+#: templates/service.html:65
+msgid "Номери для некурящих"
+msgstr "Non-smoking rooms"
+
+#: templates/service.html:66
+msgid "Вид з вікна / Тераса"
+msgstr "Window view / Terrace"
+
+#: templates/service.html:67
+msgid "Опалення / Вентилятор"
+msgstr "Heating / Fan"
+
+#: templates/service.html:68
+msgid "Коврове покриття"
+msgstr "Carpeted floor"
+
+#: templates/service.html:69
+msgid "Вішалка для одягу"
+msgstr "Clothes rack"
+
+#: templates/service.html:70
+msgid "Електричний чайник"
+msgstr "Electric kettle"
+
+#: templates/service.html:72
+msgid "Ванна кімната"
+msgstr "Bathroom"
+
+#: templates/service.html:74
+msgid "Душ та туалет"
+msgstr "Shower and toilet"
+
+#: templates/service.html:75
+msgid "Фен"
+msgstr "Hairdryer"
+
+#: templates/service.html:76
+msgid "Рушники та капці"
+msgstr "Towels and slippers"
+
+#: templates/service.html:81
+msgid "Харчування"
+msgstr "Dining"
+
+#: templates/service.html:83
+msgid "Власний ресторан"
+msgstr "On-site restaurant"
+
+#: templates/service.html:84
+msgid "Сніданок у номер"
+msgstr "Breakfast in the room"
+
+#: templates/service.html:85
+msgid "Доставка їжі та напоїв"
+msgstr "Room service"
+
+#: templates/service.html:86
+msgid "Доставка продуктів"
+msgstr "Grocery delivery"
+
+#: templates/service.html:86 templates/service.html:101
+#: templates/service.html:103 templates/service.html:105
+msgid "платно"
+msgstr "surcharge"
+
+#: templates/service.html:88
+msgid "Стійка реєстрації"
+msgstr "Reception Desk"
+
+#: templates/service.html:90
+msgid "Круглосуточна стійка"
+msgstr "24-hour front desk"
+
+#: templates/service.html:91
+msgid "Видача рахунків"
+msgstr "Invoicing"
+
+#: templates/service.html:92
+msgid "Послуги консьєржа"
+msgstr "Concierge services"
+
+#: templates/service.html:93
+msgid "Прискорена/інд. реєстрація"
+msgstr "Express/Ind. check-in"
+
+#: templates/service.html:98
+msgid "Сервіси та Бізнес"
+msgstr "Business & Services"
+
+#: templates/service.html:100
+msgid "Щоденне прибирання"
+msgstr "Daily housekeeping"
+
+#: templates/service.html:101
+msgid "Пральня"
+msgstr "Laundry"
+
+#: templates/service.html:102
+msgid "Послуга 'дзвінок-будильник'"
+msgstr "Wake-up call service"
+
+#: templates/service.html:103
+msgid "Трансфер (аеропорт/місто)"
+msgstr "Transfer (airport/city)"
+
+#: templates/service.html:104
+msgid "Факс / Ксерокопіювання"
+msgstr "Fax / Photocopying"
+
+#: templates/service.html:105
+msgid "Конференц-зал"
+msgstr "Conference hall"
+
+#: templates/service.html:114
+msgid "Безпека"
+msgstr "Security"
+
+#: templates/service.html:115
+msgid "Сейф, вхід за ключем, вогнегасники та цілодобовий нагляд."
+msgstr "Safe, key access, fire extinguishers, and 24-hour supervision."
+
+#: templates/service.html:122
+msgid "Спільні зони"
+msgstr "Common Areas"
+
+#: templates/service.html:123
+msgid "Тераса на свіжому повітрі, місця для паління та зони відпочинку."
+msgstr "Outdoor terrace, smoking areas, and lounge zones."
+
+#: templates/service.html:130
+msgid "Тварини"
+msgstr "Pets"
+
+#: templates/service.html:131
+msgid "Дозволено за запитом. Можлива доплата за додаткове прибирання."
+msgstr "Allowed upon request. Additional cleaning fees may apply."

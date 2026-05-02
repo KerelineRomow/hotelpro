@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Політика конфіденційності - НАТАН" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'img/carousel-1.jpg' %});">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">{% translate "Конфіденційність" %}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-4 text-center">{% translate "Політика конфіденційності та захисту персональних даних" %}</h2>
+
+                <div class="content text-body shadow-sm p-4 p-md-5 bg-white rounded" style="line-height: 1.8;">
+
+                    <h5 class="text-primary mt-4">{% translate "1. Загальні положення" %}</h5>
+                    <p>{% translate "Володільцем персональних даних є" %} <strong>{% translate "ФОП Куда Олександр" %}</strong></p>
+                    <p>{% blocktranslate %}Ця Політика встановлює порядок отримання, зберігання, обробки та використання персональних даних користувачів сайту <strong>Готель НАТАН</strong>. Ми з повагою ставимося до конфіденційної інформації кожного відвідувача.{% endblocktranslate %}</p>
+
+                    <h5 class="text-primary mt-4">{% translate "2. Які дані ми збираємо" %}</h5>
+                    <p>{% translate "Під час заповнення форми бронювання ми просимо вас надати:" %}</p>
+                    <ul>
+                        <li><strong>{% translate "Ім'я та Прізвище" %}</strong> — {% translate "для ідентифікації клієнта;" %}</li>
+                        <li><strong>{% translate "Номер телефону" %}</strong> — {% translate "для зв'язку та підтвердження броні;" %}</li>
+                        <li><strong>{% translate "Дати проживання" %}</strong> — {% translate "для перевірки наявності місць." %}</li>
+                    </ul>
+
+                    <h5 class="text-primary mt-4">{% translate "3. Мета збору даних" %}</h5>
+                    <p>{% translate "Ваші дані використовуються виключно для:" %}</p>
+                    <ul>
+                        <li>{% translate "Надання послуг тимчасового проживання;" %}</li>
+                        <li>{% translate "Підтвердження бронювання адміністратором;" %}</li>
+                        <li>{% translate "Ведення внутрішньої історії відвідувань для покращення сервісу." %}</li>
+                    </ul>
+
+                    <h5 class="text-primary mt-4">{% translate "4. Зберігання та захист" %}</h5>
+                    <p>{% translate "Ми вживаємо необхідних технічних заходів для захисту ваших даних від несанкціонованого доступу. Персональні дані зберігаються у внутрішній базі даних сайту та не передаються третім особам, крім випадків, прямо передбачених чинним законодавством України." %}</p>
+
+                    <h5 class="text-primary mt-4">{% translate "5. Права користувача" %}</h5>
+                    <p>{% translate "Відповідно до Закону України «Про захист персональних даних», ви маєте право:" %}</p>
+                    <ul>
+                        <li>{% translate "Знати, які ваші дані ми зберігаємо;" %}</li>
+                        <li>{% translate "Вимагати виправлення або повного видалення ваших даних із нашої бази;" %}</li>
+                        <li>{% translate "Відкликати згоду на обробку даних у будь-який момент, звернувшись до адміністрації." %}</li>
+                    </ul>
+
+                    <h5 class="text-primary mt-4">{% translate "6. Згода на обробку" %}</h5>
+                    <p>{% blocktranslate %}Натискаючи кнопку <strong>«Надіслати запит»</strong> на сторінці бронювання, ви підтверджуєте, що ознайомлені з цією Політикою та надаєте добровільну згоду на обробку ваших персональних даних.{% endblocktranslate %}</p>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="javascript:history.back()" class="btn btn-outline-primary px-4">{% translate "Повернутися назад" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
