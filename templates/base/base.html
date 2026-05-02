@@ -5,159 +5,224 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}НАТАН{% endblock %}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fonts and Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries -->
-    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
-
-    <!-- Styles -->
+    <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}?v=1.4" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}?v=2.0" rel="stylesheet">
 
     <style>
         :root {
-            --header-link: rgba(255,255,255,0.75);
+            --bg-header: var(--secondary);
+            --white: #fff;
+
+            --text-muted: rgba(255,255,255,0.75);
+            --hover: rgba(255,255,255,0.12);
+            --active: rgba(255,255,255,0.2);
+            --border: rgba(255,255,255,0.2);
+
+            --radius-pill: 999px;
+            --radius-md: 12px;
+
+            --transition: 0.25s ease;
         }
 
-        /* HEADER */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ================= HEADER ================= */
+
         .site-header {
-            background-color: var(--secondary) !important;
+            background: var(--bg-header);
         }
 
-        .site-header .nav-link {
-            color: var(--header-link) !important;
-            border-radius: 999px;
+        .navbar {
+            padding: 12px 20px;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
             padding: 8px 14px !important;
-            transition: 0.25s;
+            border-radius: var(--radius-pill);
+            transition: var(--transition);
+            white-space: nowrap;
         }
 
-        .site-header .nav-link:hover {
-            color: #fff !important;
-            background: rgba(255,255,255,0.1);
+        .nav-link:hover {
+            color: var(--white) !important;
+            background: var(--hover);
         }
 
-        /* ACTIVE TAB FIX */
-        .site-header .nav-link.active {
-            color: #fff !important;
-            background: rgba(255,255,255,0.18);
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.25) inset;
+        .nav-link.active {
+            color: var(--white) !important;
+            background: var(--active);
+            box-shadow: inset 0 0 0 1px var(--border);
             font-weight: 600;
         }
 
-        /* LANGUAGE BUTTON */
+        /* ================= LANGUAGE ================= */
+
+        .lang-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
         .lang-dropdown {
-            border-radius: 999px !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
             padding: 6px 12px !important;
+            border-radius: var(--radius-pill);
+
             background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #fff !important;
+            border: 1px solid var(--border);
+
+            color: var(--white) !important;
         }
 
         .lang-dropdown:hover {
-            background: rgba(255,255,255,0.15);
+            background: var(--hover);
         }
 
+        /* ================= DROPDOWN ================= */
+
         .dropdown-menu-custom {
-            border-radius: 12px !important;
-            padding: 6px !important;
-            background: #fff !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+            border-radius: var(--radius-md);
+            padding: 6px;
+            border: none;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            min-width: 160px;
         }
 
         .dropdown-item-custom {
-            padding: 10px 14px !important;
-            border-radius: 8px;
-            background: transparent;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
+            padding: 10px 12px;
+            border-radius: 8px;
+
+            font-size: 14px;
+            background: transparent;
+            border: none;
+
+            transition: var(--transition);
         }
 
         .dropdown-item-custom:hover {
-            background: #f3f5f8 !important;
+            background: #f3f5f8;
         }
 
         .dropdown-item-custom.active-lang {
-            background: #eef2f7 !important;
+            background: #eef2f7;
             font-weight: 600;
         }
 
-        /* MOBILE FIX */
+        .dropdown-item-custom span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* ================= MOBILE ================= */
+
         @media (max-width: 991.98px) {
 
-            .site-header .navbar-collapse {
+            .navbar-collapse {
                 margin-top: 10px;
-                padding: 10px;
+                padding: 12px;
+
                 background: rgba(0,0,0,0.05);
-                border-radius: 14px;
+                border-radius: var(--radius-md);
             }
 
-            .site-header .nav-link {
-                width: auto;
-                margin: 3px 0;
-                padding: 8px 12px !important;
-                font-size: 14px;
-                text-align: center;
+            .navbar-nav {
+                align-items: center !important;
             }
 
-            .site-header .nav-item {
+            .nav-item {
+                width: 100%;
                 display: flex;
                 justify-content: center;
+            }
+
+            .nav-link {
+                font-size: 14px;
+                padding: 7px 12px !important;
+                margin: 3px 0;
             }
 
             .lang-wrapper {
                 margin-top: 10px;
-                display: flex;
                 justify-content: center;
+                width: 100%;
             }
 
             .dropdown-menu-custom {
                 position: static !important;
-                margin-top: 8px !important;
-                box-shadow: none !important;
+                margin-top: 8px;
+                box-shadow: none;
             }
         }
     </style>
 </head>
 
 <body>
-<div class="container-fluid p-0" style="background-color: var(--light); min-height: 100vh;">
-<div class="container shadow-sm p-0" style="background:white; max-width:1320px; min-height:100vh; display:flex; flex-direction:column;">
+
+<div class="container-fluid p-0" style="background: var(--light); min-height: 100vh;">
+<div class="container p-0 shadow-sm" style="background:white; max-width:1320px; min-height:100vh; display:flex; flex-direction:column;">
 
     <!-- HEADER -->
-    <header class="container-fluid px-0 site-header">
-        <nav class="navbar navbar-expand-lg navbar-dark py-3 px-3 px-lg-5">
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
 
+            <!-- LOGO -->
             <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
                 <div class="bg-white rounded-circle me-2 d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
                     <i class="fa fa-book-open text-dark"></i>
                 </div>
-                <h1 class="text-white m-0 fs-4 fw-bold">НАТАН</h1>
+                <h1 class="text-white m-0 fs-5 fw-bold">НАТАН</h1>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <!-- BURGER -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                <div class="navbar-nav align-items-center pt-3 pt-lg-0">
+            <!-- MENU -->
+            <div class="collapse navbar-collapse justify-content-end" id="nav">
+                <div class="navbar-nav align-items-center">
 
-                    <a href="{% url 'index' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">{% translate "Головна" %}</a>
-                    <a href="{% url 'rooms' %}" class="nav-link {% if 'rooms' in request.path %}active{% endif %}">{% translate "Номери" %}</a>
-                    <a href="{% url 'facilities' %}" class="nav-link {% if 'facilities' in request.path %}active{% endif %}">{% translate "Сервіси" %}</a>
-                    <a href="{% url 'booking' %}" class="nav-link {% if 'booking' in request.path %}active{% endif %}">{% translate "Бронювання" %}</a>
-                    <a href="{% url 'contact' %}" class="nav-link {% if 'contact' in request.path %}active{% endif %}">{% translate "Контакти" %}</a>
+                    <a href="{% url 'index' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">
+                        {% translate "Головна" %}
+                    </a>
+
+                    <a href="{% url 'rooms' %}" class="nav-link {% if 'rooms' in request.path %}active{% endif %}">
+                        {% translate "Номери" %}
+                    </a>
+
+                    <a href="{% url 'facilities' %}" class="nav-link {% if 'facilities' in request.path %}active{% endif %}">
+                        {% translate "Сервіси" %}
+                    </a>
+
+                    <a href="{% url 'booking' %}" class="nav-link {% if 'booking' in request.path %}active{% endif %}">
+                        {% translate "Бронювання" %}
+                    </a>
+
+                    <a href="{% url 'contact' %}" class="nav-link {% if 'contact' in request.path %}active{% endif %}">
+                        {% translate "Контакти" %}
+                    </a>
 
                     <!-- LANGUAGE -->
-                    <div class="nav-item dropdown ms-lg-3 lang-wrapper">
+                    <div class="dropdown ms-lg-3 lang-wrapper">
                         <a href="#" class="nav-link dropdown-toggle lang-dropdown" data-bs-toggle="dropdown">
                             {% get_current_language as LANGUAGE_CODE %}
                             🌐 {% if LANGUAGE_CODE == 'uk' %}UA{% else %}EN{% endif %}
@@ -170,13 +235,13 @@
 
                                 <button name="language" value="uk"
                                     class="dropdown-item-custom {% if LANGUAGE_CODE == 'uk' %}active-lang{% endif %}">
-                                    Українська
+                                    <span>Українська</span>
                                     {% if LANGUAGE_CODE == 'uk' %}✔{% endif %}
                                 </button>
 
                                 <button name="language" value="en"
                                     class="dropdown-item-custom {% if LANGUAGE_CODE == 'en' %}active-lang{% endif %}">
-                                    English
+                                    <span>English</span>
                                     {% if LANGUAGE_CODE == 'en' %}✔{% endif %}
                                 </button>
                             </form>
@@ -195,14 +260,14 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="container-fluid py-4 px-4 mt-auto text-white" style="background:var(--secondary);">
+    <footer class="text-white text-center py-3" style="background: var(--secondary);">
         &copy; {% now "Y" %} НАТАН
     </footer>
 
 </div>
 </div>
 
-<!-- Scripts -->
+<!-- JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
