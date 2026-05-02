@@ -14,79 +14,114 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
+    <!-- Libraries -->
     <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
     <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Styles -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}?v=1.3" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}?v=1.4" rel="stylesheet">
 
     <style>
-        .lang-dropdown {
-            border-radius: 50px !important;
-            padding: 5px 15px !important;
+        :root {
+            --header-link: rgba(255,255,255,0.75);
+        }
+
+        /* HEADER */
+        .site-header {
+            background-color: var(--secondary) !important;
+        }
+
+        .site-header .nav-link {
+            color: var(--header-link) !important;
+            border-radius: 999px;
+            padding: 8px 14px !important;
+            transition: 0.25s;
+        }
+
+        .site-header .nav-link:hover {
+            color: #fff !important;
             background: rgba(255,255,255,0.1);
+        }
+
+        /* ACTIVE TAB FIX */
+        .site-header .nav-link.active {
+            color: #fff !important;
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.25) inset;
+            font-weight: 600;
+        }
+
+        /* LANGUAGE BUTTON */
+        .lang-dropdown {
+            border-radius: 999px !important;
+            padding: 6px 12px !important;
+            background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            width: max-content;
+            color: #fff !important;
         }
 
         .lang-dropdown:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
         }
 
         .dropdown-menu-custom {
-            border: none !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
             border-radius: 12px !important;
-            overflow: hidden;
-            padding: 0 !important;
-            min-width: 160px;
+            padding: 6px !important;
+            background: #fff !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
         }
 
         .dropdown-item-custom {
-            padding: 12px 20px !important;
-            font-size: 14px !important;
-            transition: all 0.2s;
-            border: none !important;
-            background: white;
-            width: 100%;
-            text-align: left;
+            padding: 10px 14px !important;
+            border-radius: 8px;
+            background: transparent;
             display: flex;
-            align-items: center;
             justify-content: space-between;
         }
 
         .dropdown-item-custom:hover {
-            background-color: var(--light) !important;
-            color: var(--primary) !important;
+            background: #f3f5f8 !important;
         }
 
         .dropdown-item-custom.active-lang {
-            background-color: #f8f9fa !important;
-            font-weight: 600 !important;
-            color: var(--primary) !important;
+            background: #eef2f7 !important;
+            font-weight: 600;
         }
 
-        .dropdown-toggle::after {
-            display: none !important;
-        }
-
+        /* MOBILE FIX */
         @media (max-width: 991.98px) {
-            .nav-item.dropdown.ms-lg-3 {
-                margin-top: 15px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+
+            .site-header .navbar-collapse {
+                margin-top: 10px;
+                padding: 10px;
+                background: rgba(0,0,0,0.05);
+                border-radius: 14px;
             }
+
+            .site-header .nav-link {
+                width: auto;
+                margin: 3px 0;
+                padding: 8px 12px !important;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .site-header .nav-item {
+                display: flex;
+                justify-content: center;
+            }
+
+            .lang-wrapper {
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+            }
+
             .dropdown-menu-custom {
                 position: static !important;
-                float: none !important;
-                margin-top: 10px !important;
-                width: 100%;
-                max-width: 200px;
+                margin-top: 8px !important;
                 box-shadow: none !important;
             }
         }
@@ -94,117 +129,82 @@
 </head>
 
 <body>
-    <div class="container-fluid p-0" style="background-color: var(--light); min-height: 100vh;">
-        <div class="container shadow-sm p-0" style="background-color: white; max-width: 1320px; min-height: 100vh; position: relative; display: flex; flex-direction: column;">
+<div class="container-fluid p-0" style="background-color: var(--light); min-height: 100vh;">
+<div class="container shadow-sm p-0" style="background:white; max-width:1320px; min-height:100vh; display:flex; flex-direction:column;">
 
-            <!-- Spinner -->
-            <div id="spinner" class="show bg-white position-absolute translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" style="z-index: 9999;">
-                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                    <span class="sr-only">{% translate "Завантаження..." %}</span>
+    <!-- HEADER -->
+    <header class="container-fluid px-0 site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark py-3 px-3 px-lg-5">
+
+            <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                <div class="bg-white rounded-circle me-2 d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
+                    <i class="fa fa-book-open text-dark"></i>
+                </div>
+                <h1 class="text-white m-0 fs-4 fw-bold">НАТАН</h1>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav align-items-center pt-3 pt-lg-0">
+
+                    <a href="{% url 'index' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">{% translate "Головна" %}</a>
+                    <a href="{% url 'rooms' %}" class="nav-link {% if 'rooms' in request.path %}active{% endif %}">{% translate "Номери" %}</a>
+                    <a href="{% url 'facilities' %}" class="nav-link {% if 'facilities' in request.path %}active{% endif %}">{% translate "Сервіси" %}</a>
+                    <a href="{% url 'booking' %}" class="nav-link {% if 'booking' in request.path %}active{% endif %}">{% translate "Бронювання" %}</a>
+                    <a href="{% url 'contact' %}" class="nav-link {% if 'contact' in request.path %}active{% endif %}">{% translate "Контакти" %}</a>
+
+                    <!-- LANGUAGE -->
+                    <div class="nav-item dropdown ms-lg-3 lang-wrapper">
+                        <a href="#" class="nav-link dropdown-toggle lang-dropdown" data-bs-toggle="dropdown">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            🌐 {% if LANGUAGE_CODE == 'uk' %}UA{% else %}EN{% endif %}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+
+                                <button name="language" value="uk"
+                                    class="dropdown-item-custom {% if LANGUAGE_CODE == 'uk' %}active-lang{% endif %}">
+                                    Українська
+                                    {% if LANGUAGE_CODE == 'uk' %}✔{% endif %}
+                                </button>
+
+                                <button name="language" value="en"
+                                    class="dropdown-item-custom {% if LANGUAGE_CODE == 'en' %}active-lang{% endif %}">
+                                    English
+                                    {% if LANGUAGE_CODE == 'en' %}✔{% endif %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Header -->
-            <header class="container-fluid px-0" style="background-color: var(--secondary) !important;">
-                <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 py-3 px-lg-5 px-3">
-                    <div class="container-fluid p-0">
-                        <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
-                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle me-2" style="width: 40px; height: 40px;">
-                                <i class="fa fa-book-open text-dark"></i>
-                            </div>
-                            <h1 class="m-0 text-white text-uppercase fs-4 fw-bold">{% translate "НАТАН" %}</h1>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" style="border: none;">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+        </nav>
+    </header>
 
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                            <div class="navbar-nav align-items-center pt-3 pt-lg-0">
-                                <a href="{% url 'index' %}" class="nav-item nav-link mx-lg-2 {% if request.path == '/' %}active{% endif %}">{% translate "Головна" %}</a>
-                                <a href="{% url 'rooms' %}" class="nav-item nav-link mx-lg-2 {% if 'rooms' in request.path %}active{% endif %}">{% translate "Номери" %}</a>
-                                <a href="{% url 'facilities' %}" class="nav-item nav-link mx-lg-2 {% if 'facilities' in request.path %}active{% endif %}">{% translate "Сервіси" %}</a>
-                                <a href="{% url 'booking' %}" class="nav-item nav-link mx-lg-2 {% if 'booking' in request.path %}active{% endif %}">{% translate "Бронювання" %}</a>
-                                <a href="{% url 'contact' %}" class="nav-item nav-link mx-lg-2 {% if 'contact' in request.path %}active{% endif %}">{% translate "Контакти" %}</a>
+    <!-- CONTENT -->
+    <main style="flex:1;">
+        {% block content %}{% endblock %}
+    </main>
 
-                                <div class="d-none d-lg-block ms-4 text-white opacity-50">|</div>
+    <!-- FOOTER -->
+    <footer class="container-fluid py-4 px-4 mt-auto text-white" style="background:var(--secondary);">
+        &copy; {% now "Y" %} НАТАН
+    </footer>
 
-                                <!-- Language Switcher -->
-                                <div class="nav-item dropdown ms-lg-3">
-                                    <a href="#" class="nav-link dropdown-toggle text-white lang-dropdown d-flex align-items-center" data-bs-toggle="dropdown">
-                                        {% get_current_language as LANGUAGE_CODE %}
-                                        <i class="fa fa-globe me-2 small"></i>
-                                        <span class="fw-bold">{% if LANGUAGE_CODE == 'uk' %}UA{% else %}EN{% endif %}</span>
-                                        <i class="fa fa-chevron-down ms-2" style="font-size: 10px;"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-custom m-0">
-                                        <form action="{% url 'set_language' %}" method="post" class="m-0">
-                                            {% csrf_token %}
-                                            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+</div>
+</div>
 
-                                            <button name="language" value="uk" type="submit"
-                                                class="dropdown-item-custom {% if LANGUAGE_CODE == 'uk' %}active-lang{% endif %}">
-                                                <span>Українська (UA)</span>
-                                                {% if LANGUAGE_CODE == 'uk' %}<i class="fa fa-check text-success small"></i>{% endif %}
-                                            </button>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                                            <button name="language" value="en" type="submit"
-                                                class="dropdown-item-custom {% if LANGUAGE_CODE == 'en' %}active-lang{% endif %}">
-                                                <span>English (EN)</span>
-                                                {% if LANGUAGE_CODE == 'en' %}<i class="fa fa-check text-success small"></i>{% endif %}
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-
-            <!-- Main Content -->
-            <main style="flex: 1 0 auto;">
-                {% block content %}{% endblock %}
-            </main>
-
-            <!-- Footer -->
-            <footer class="container-fluid py-5 px-5 mt-auto" style="background-color: var(--secondary) !important; color: white;">
-                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <div class="opacity-75">
-                        &copy; {% now "Y" %} {% translate "Готель НАТАН, Inc. Всі права захищені." %}
-                        <span class="mx-2">|</span>
-                        <a href="{% url 'privacy_policy' %}" class="text-white text-decoration-none opacity-75 hover-opacity-100">{% translate "Політика конфіденційності" %}</a>
-                    </div>
-                    <div class="fs-4 mt-3 mt-md-0">
-                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
-    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
-    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
-    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
-    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
-    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-
-    <script>
-        $(document).ready(function() {
-            setTimeout(function () {
-                var s = $('#spinner');
-                if (s.length > 0) {
-                    s.removeClass('show');
-                }
-            }, 500);
-        });
-    </script>
 </body>
 </html>
